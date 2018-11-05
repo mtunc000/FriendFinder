@@ -1,0 +1,81 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        
+        <head>
+          <meta charset="UTF-8">
+          <title>Star Wars - Express</title>
+          <!-- Latest compiled and minified CSS & JS -->
+          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+          <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+          <script src="https://code.jquery.com/jquery.js"></script>
+          <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        
+        </head>
+        
+        <body>
+        
+          <div class="container">
+
+                <div class="jumbotron">
+                        <h1 class="text-center"><span class="fa fa-fire"></span> Friend Finder</h1>  
+                        <br>
+                  
+                        <h3 class="text-center"> <span>The great resource to find the sincere friends!</span></h3>
+                        <hr>
+                        <a href="/survey"><button class="btn btn-danger btn-lg"><span class="fa fa-eye"></span> Search Friends</button></a>
+
+                      </div>
+                  
+            <div class="row">
+        
+              <div class="col-12">
+        
+                <div class="card">
+                  <div class="card-header">
+                    <strong>Friends Database</strong></h3>
+                  </div>
+                  <div class="card-body">
+                    <ul id="character-section" class="list-group">
+        
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+        
+            <script type="text/javascript">
+        
+              $.get("/api/friends", function(data) {
+                for (var i = 0; i < data.length; i++) {
+                  console.log(data[i]);
+                  var listGroupItem = $("<li class='list-group-item'>");
+        
+                  listGroupItem.append($("<h2>").text("Name: " + data[i].name));
+                  listGroupItem.append($("<h3>").text("Photo: " + data[i].photo));
+                        listGroupItem.append($("<h3>").text("q1: " + data[i].q1));
+                            listGroupItem.append($("<h3>").text("q2: " + data[i].q2));
+                                listGroupItem.append($("<h3>").text("q3: " + data[i].q3));
+                                    listGroupItem.append($("<h3>").text("q4: " + data[i].q4));
+                                        listGroupItem.append($("<h3>").text("q5: " + data[i].q5));
+                                            listGroupItem.append($("<h3>").text("q6: " + data[i].q6));
+                                                listGroupItem.append($("<h3>").text("q7: " + data[i].q7));
+                                                     listGroupItem.append($("<h3>").text("q8: " + data[i].q8));
+                                                        listGroupItem.append($("<h3>").text("q9: " + data[i].q9));
+                                                            listGroupItem.append($("<h3>").text("q10: " + data[i].q10));
+
+
+                  $("#character-section").append(listGroupItem);
+                }
+              });
+            </script>
+
+         <footer class="footer">
+                <div class="container">
+                  <p><a href="https://github.com/mtunc000/FriendFinder">GitHub Repo</a></p>
+                </div>
+              </footer>
+        </body>
+        
+        </html>
+        
